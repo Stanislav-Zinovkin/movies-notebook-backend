@@ -11,6 +11,7 @@ export class UsersService {
       createdAt: Date;
       role: string;
     }[] = [];
+    
 
     findAll() {
         return this.users;
@@ -26,5 +27,9 @@ export class UsersService {
         this.users.push(newUser);
         return newUser;
 
+    }
+
+    findByEmail(email: string) {
+        return this.users.find(user => user.email === email);
     }
 }
