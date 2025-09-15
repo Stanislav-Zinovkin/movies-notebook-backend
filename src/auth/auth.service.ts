@@ -1,8 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersModule } from 'src/users/users.module';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
+import { comparePassword } from 'src/utils/hash.util';
 @Injectable()
 export class AuthService {
     constructor(
@@ -13,7 +13,8 @@ export class AuthService {
         const user = this.usersService.findByEmail(email);
         if (!user) return null;
 
-        if(user.password !== password) return null;
+        const isPasswordValid = await comparePassword(password, user.password);
+        if(!isPasswordValid) return null;
 
         return user;
     }
