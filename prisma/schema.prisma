@@ -27,8 +27,8 @@ model Movie {
   id          String  @id @default(cuid())
   tmdbId      Int     @unique
   title       String
-  overview    String
-  releaseDate DateTime
+  overview    String?
+  releaseDate DateTime?
   posterPath  String?
   createdAt DateTime  @default(now())
 }
