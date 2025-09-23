@@ -22,3 +22,13 @@ model User {
   role      String   @default("user")
   createdAt DateTime @default(now())
 }
+
+model Movie {
+  id          String  @id @default(cuid())
+  tmdbId      Int     @unique
+  title       String
+  overview    String
+  releaseDate DateTime
+  posterPath  String?
+  createdAt DateTime  @default(now())
+}
