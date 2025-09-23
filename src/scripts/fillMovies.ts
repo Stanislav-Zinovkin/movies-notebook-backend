@@ -1,5 +1,5 @@
-import { PrismaClient } from "../../generated/prisma";
-import { fethcMovies, TMDBMovie } from "src/utils/tmdb.utils";
+import { PrismaClient } from "../../generated/prisma/index.js";
+import { fethcMovies, TMDBMovie } from "../utils/tmdb.utils";
 
 const prisma = new PrismaClient();
 
