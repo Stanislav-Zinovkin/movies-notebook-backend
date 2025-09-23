@@ -1,0 +1,20 @@
+# 1. Вибір образу
+FROM node:20
+
+# 2. Робоча папка
+WORKDIR /usr/src/app
+
+# 3. Копіюємо package.json + package-lock.json
+COPY package*.json ./
+
+# 4. Встановлюємо залежності
+RUN npm install
+
+# 5. Копіюємо весь код
+COPY . .
+
+# 6. Білд проєкту
+RUN npm run build
+
+# 7. Запуск бекенду
+CMD ["node", "dist/main.js"]
