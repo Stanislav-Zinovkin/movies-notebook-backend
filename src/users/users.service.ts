@@ -5,7 +5,7 @@ import { hashPassword } from '../utils/hash.util';
 
 @Injectable()
 export class UsersService {
-    constructor(private prisma: PrismaService) {}
+    constructor(private readonly prisma: PrismaService) {}
     
 
     async findAll() {
