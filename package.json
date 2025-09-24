@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "migrate:dev": "prisma migrate dev --name init",
     "migrate:deploy": "prisma migrate deploy",
-    "postinstall": "prisma generate --schema=src/prisma/schema.prisma --output=src/generated/prisma"
+    "postinstall": "prisma generate --schema=schema.prisma"
 
   },
   "dependencies": {
